@@ -1,5 +1,42 @@
 <p>hangman works!</p>
 
-<h1>{{ service.wort }}</h1>
 
+<input [(ngModel)]="service.wordLength" type="number" placeholder="Wortlänge eingeben"/>
+<br>
+<button (click)="service.startGame()">Spiel starten</button>
+
+<h3>DAS AKTUELLE WORT</h3>
+<hr>
+<p>Wort: {{ service.wort }}</p>
+<hr>
+
+<h3>AKTUELLER PROGRESS</h3>
+<hr>
+<p>{{service.wordProgess.length}}</p>
+<span *ngFor="let letter of service.wordProgess">{{letter}}</span>
+<hr>
+
+<h3>Benutzte Chars</h3>
+<hr>
+<p>{{service.benutzteChars.length}}</p>
+<p>{{service.benutzteChars}}</p>
+<hr>
+
+<h3>Benutzte Falsche Chars</h3>
+<hr>
+<p>{{service.benutzteFalscheChars.length}}</p>
+<p>{{ service.benutzteFalscheChars }}</p>
+<hr>
+
+
+<h3>INPUT</h3>
+<br>
+<input 
+    type="text" 
+    placeholder="Buchstaben eingeben"
+    [(ngModel)]="inputChar"
+    (keyup.enter)="service.checkChar(inputChar)"
+/>
+<button (click)="service.checkChar(inputChar)">Check</button>
 <app-input></app-input>
+<br>
