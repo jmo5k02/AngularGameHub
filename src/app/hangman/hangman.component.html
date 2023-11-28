@@ -3,31 +3,18 @@
 <br>
 <button (click)="service.startGame()">Spiel starten</button>
 
-@if (service.isGameRunning) {
+@if (service.isGameRunning ) {
 
-<!-- <h3>DAS AKTUELLE WORT</h3>
+<h3>DAS AKTUELLE WORT</h3>
 <hr>
 <p>Wort: {{ service.wort }}</p>
 <hr>
-
-<h3>AKTUELLER PROGRESS</h3>
-<hr>
-<p>{{service.wordProgess.length}}</p>
-<span *ngFor="let letter of service.wordProgess">{{letter}}</span>
-<hr>
-
-<h3>Benutzte Chars</h3>
-<hr>
-<p>{{service.benutzteChars.length}}</p>
-<p>{{service.benutzteChars}}</p>
-<hr> -->
 
 <h3>Benutzte Falsche Chars</h3>
 <hr>
 <p>{{service.benutzteFalscheChars.length}}</p>
 <p>{{ service.benutzteFalscheChars }}</p>
 <hr>
-
 
 <h3>INPUT</h3>
 <br>

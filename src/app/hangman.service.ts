@@ -40,13 +40,14 @@ export class HangmanService {
     
     if (this.benutzteFalscheChars.length >= 4) {
         this.isGameLost = true;
+        
     }
 
     console.log("Word Progress: " + this.wordProgess);
     if (this.wordProgess.join("").toUpperCase() == this.wort.toUpperCase()) {
        
 
-        // this.isGameRunning = false;
+        
         this.isGameWon = true;
         
     }
@@ -81,7 +82,7 @@ export class HangmanService {
   }
 
   intiGameVarialbes(): void {
-    this.isGameRunning = false;
+    this.isGameRunning = true;
     this.isGameWon = false;
     this.wort = "";
     this.benutzteChars = [];
