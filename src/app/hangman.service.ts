@@ -25,9 +25,9 @@ export class HangmanService {
 
     this.benutzteChars = [...this.benutzteChars, char]
 
-    if (this.wort.includes(char)) {
+    if (this.wort.includes(char.toLowerCase())) {
         for (let i = 0; i < this.wort.length; i++) {
-            if (this.wort.charAt(i) == char) {
+            if (this.wort.charAt(i) == char.toLowerCase()) {
                 this.wordProgess[i] = char;
             }
         }
@@ -37,10 +37,12 @@ export class HangmanService {
     }
     
     console.log("Word Progress: " + this.wordProgess);
-    if (this.wordProgess.join("") == this.wort) {
-        this.isGameRunning = false;
+    if (this.wordProgess.join("").toUpperCase() == this.wort.toUpperCase()) {
+       
+
+        // this.isGameRunning = false;
         this.isGameWon = true;
-        alert("You won!");
+        
     }
   }
 
