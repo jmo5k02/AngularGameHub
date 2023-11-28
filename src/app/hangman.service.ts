@@ -84,6 +84,7 @@ export class HangmanService {
   intiGameVarialbes(): void {
     this.isGameRunning = true;
     this.isGameWon = false;
+    this.isGameLost = false;
     this.wort = "";
     this.benutzteChars = [];
     this.benutzteFalscheChars = [];
