@@ -1,10 +1,15 @@
 
 <input [(ngModel)]="service.wordLength" type="number" placeholder="Wortlänge eingeben"/>
+<select [(ngModel)]="service.gameMode">
+    <option  value="classic">Splatter-Mode</option>
+    <option value="meme">Meme-Mode</option>
+</select>
 <br>
 <button (click)="service.startGame()">Spiel starten</button>
 
-@if (service.isGameRunning ) {
 
+<!-- @if (service.isGameRunning ) { -->
+@if (true) {
 <h3>DAS AKTUELLE WORT</h3>
 <hr>
 <p>Wort: {{ service.wort }}</p>
@@ -16,10 +21,13 @@
 <p>{{ service.benutzteFalscheChars }}</p>
 <hr>
 
-<h3>INPUT</h3>
-<br>
-<app-input></app-input>
-<br>
+
+<div id="output">
+
+    <app-input id="input"></app-input>
+    <app-gui></app-gui>
+
+</div>
 
 @if (service.isGameWon) {
     <h3>YOU WON!!!!!</h3>
