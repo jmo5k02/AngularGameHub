@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { HangmanService } from './hangman.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'GameHub';
+
+  constructor(public service: HangmanService) { 
+    
+  }
+
 }
