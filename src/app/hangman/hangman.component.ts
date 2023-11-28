@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HangmanService } from '../hangman.service';
 
 @Component({
   selector: 'app-hangman',
@@ -10,8 +11,12 @@ import { CommonModule } from '@angular/common';
 })
 export class HangmanComponent {
 
+ 
 
-  addChar(){
-
+  constructor(public service: HangmanService) { 
+     
   }
+
+  
+
 }
