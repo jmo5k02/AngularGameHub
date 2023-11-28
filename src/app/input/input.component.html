@@ -1,1 +1,11 @@
 <p>input works!</p>
+
+<div class="grid-layout">
+  <div type="text" class="alphabet-chars" value="0"></div>
+
+  <div class="alphabet-buttons">
+    <button [disabled]="findBuchstabe(char)" class="grid-item" (click)="addCharToList(char)" *ngFor="let char of alphabet">{{ char }}</button>
+  </div>
+</div>
+
+
