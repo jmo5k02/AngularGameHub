@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
-import {HangmanComponent} from "./hangman/hangman.component";
+import { SudokuComponent } from './sudoku/sudoku.component';
+import { HangmanComponent } from './hangman/hangman.component';
 
 export const routes: Routes = [
-  {path: 'hangman', component: HangmanComponent }
+    {path: 'Sudoku', component: SudokuComponent},
+    {path: 'Hangman', component: HangmanComponent},
 ];

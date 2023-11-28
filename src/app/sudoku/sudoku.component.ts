@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-hangman',
+  selector: 'app-sudoku',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './hangman.component.html',
-  styleUrl: './hangman.component.scss'
+  templateUrl: './sudoku.component.html',
+  styleUrl: './sudoku.component.scss'
 })
-export class HangmanComponent {
+export class SudokuComponent {
 
 }
