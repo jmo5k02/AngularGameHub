@@ -1,11 +1,9 @@
-<p>input works!</p>
-
 <div class="grid-layout">
   <div type="text" class="alphabet-chars" value="0">
     <span *ngFor="let letter of service.wordProgess">{{letter}}</span>
   </div>
 
   <div class="alphabet-buttons">
-    <button [disabled]="findBuchstabe(char)" class="grid-item" (click)="service.checkChar(char )" *ngFor="let char of alphabet">{{ char }}</button>
+    <button [disabled]="findBuchstabe(char) || service.isGameRunning" class="grid-item" (click)="service.checkChar(char )" *ngFor="let char of alphabet">{{ char }}</button>
   </div>
 </div>
