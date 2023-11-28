@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class HangmanService {
 
   isGameRunning: boolean = false;
+  isGameWon: boolean = false;
 
   wort: string = "";
 
@@ -36,6 +37,11 @@ export class HangmanService {
     }
     
     console.log("Word Progress: " + this.wordProgess);
+    if (this.wordProgess.join("") == this.wort) {
+        this.isGameRunning = false;
+        this.isGameWon = true;
+        alert("You won!");
+    }
   }
 
   generateWordProgress(): void {
