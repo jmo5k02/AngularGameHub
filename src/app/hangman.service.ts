@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { germanWords } from './Transfer_Notizen';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,6 +7,7 @@ export class HangmanService {
 
   isGameRunning: boolean = false;
   isGameWon: boolean = false;
+  isGameLost: boolean = false;
 
   wort: string = "";
 
@@ -18,6 +19,7 @@ export class HangmanService {
 
   checkChar(char: string): void {
     console.log("checkChar: " + char);
+    console.log("wordToCheck: " + this.wort);
     
     if (this.benutzteChars.includes(char)) {
         return;
@@ -25,9 +27,9 @@ export class HangmanService {
 
     this.benutzteChars = [...this.benutzteChars, char]
 
-    if (this.wort.includes(char.toLowerCase())) {
+    if (this.wort.toLowerCase().includes(char.toLowerCase())) {
         for (let i = 0; i < this.wort.length; i++) {
-            if (this.wort.charAt(i) == char.toLowerCase()) {
+            if (this.wort.charAt(i).toLowerCase() == char.toLowerCase()) {
                 this.wordProgess[i] = char;
             }
         }
@@ -36,11 +38,16 @@ export class HangmanService {
         this.benutzteFalscheChars.push(char);
     }
     
+    if (this.benutzteFalscheChars.length >= 4) {
+        this.isGameLost = true;
+        
+    }
+
     console.log("Word Progress: " + this.wordProgess);
     if (this.wordProgess.join("").toUpperCase() == this.wort.toUpperCase()) {
        
 
-        // this.isGameRunning = false;
+        
         this.isGameWon = true;
         
     }
@@ -58,12 +65,12 @@ export class HangmanService {
   }
 
   genereateWord(): string {
-    let genWort: string = "";
+    let possibleWords: string[] = germanWords.filter(
+      (word) => word.length == this.wordLength);
     //Generate the word with wordlength
-    for (let i = 0; i < this.wordLength; i++) {
-      i % 2 == 0 ? genWort += "a" : genWort += "f";
-        
-    }
+    let genWort: string = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+    //Generate random word from germanWords array
+    
     return genWort;
   }
 
@@ -75,7 +82,9 @@ export class HangmanService {
   }
 
   intiGameVarialbes(): void {
-    this.isGameRunning = false;
+    this.isGameRunning = true;
+    this.isGameWon = false;
+    this.isGameLost = false;
     this.wort = "";
     this.benutzteChars = [];
     this.benutzteFalscheChars = [];
