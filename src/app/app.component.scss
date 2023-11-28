@@ -1,0 +1,11 @@
+#menu {
+  margin-bottom: 40px;
+
+  a {
+    color: black;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
