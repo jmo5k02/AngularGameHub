@@ -1,11 +1,29 @@
-<h1>Startseite</h1>
 
-<div id="menu">
-  <a [routerLink]="['/']">Home</a>
+<div class="header">
+  <h1>Startseite</h1>
 
-  <a [routerLink]="['/Sudoku']">Sudoku</a>
+  <div id="menu">
+    <a [routerLink]="['/']">Home</a>
 
-  <a [routerLink]="['/Hangman']">Hangman</a>
+    <a [routerLink]="['/Sudoku']">Sudoku</a>
+
+    <a [routerLink]="['/Hangman']">Hangman</a>
+  </div>
 </div>
 
+
 <router-outlet></router-outlet>
+
+<!-- <div id="content">
+
+  
+  <div>
+    left Box
+  </div>
+
+  <div>
+    right Box
+  </div>
+
+
+</div> -->

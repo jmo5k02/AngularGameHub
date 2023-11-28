@@ -10,16 +10,10 @@
 
 <!-- @if (service.isGameRunning ) { -->
 @if (true) {
-<h3>DAS AKTUELLE WORT</h3>
+<!-- <h3>DAS AKTUELLE WORT</h3>
 <hr>
 <p>Wort: {{ service.wort }}</p>
-<hr>
-
-<h3>Benutzte Falsche Chars</h3>
-<hr>
-<p>{{service.benutzteFalscheChars.length}}</p>
-<p>{{ service.benutzteFalscheChars }}</p>
-<hr>
+<hr> -->
 
 
 <div id="output">
@@ -36,6 +30,7 @@
 
 @if (service.isGameLost) {
     <h3>YOU LOST.... :( </h3>
+    <p>Das Wort war: {{ service.wort }}</p>
     <button (click)="service.startGame()">Neues Spiel</button>
 }
 

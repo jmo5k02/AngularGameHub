@@ -45,6 +45,7 @@ export class HangmanService {
     
     if (this.benutzteFalscheChars.length >= this.maxFehlversuche) {
         this.isGameLost = true;
+        alert("Du hast verloren!");
         
     }
 
@@ -54,6 +55,7 @@ export class HangmanService {
 
         
         this.isGameWon = true;
+        alert("Du hast gewonnen!");
         
     }
   }
