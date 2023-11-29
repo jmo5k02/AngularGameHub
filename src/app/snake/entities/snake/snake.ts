@@ -1,4 +1,5 @@
 import {Direction} from "../../types/direction";
+import { Eatable } from "../eatables/eatable";
 
 export class Snake {
   segmenttempx: number = 0;
@@ -42,9 +43,13 @@ export class Snake {
   detectCollision(): boolean {
     // Implementierung der Logik für die Kollisionserkennung
     for (let i =  1; i <= this.segmentPos.length - 1; i++) {
-      if (this.segmentPos[0] === this.segmentPos[i]){
+      let isPositionSame: boolean = (this.segmentPos[0][0] == this.segmentPos[i][0] && this.segmentPos[0][1] == this.segmentPos[i][1])
+      
+      if (isPositionSame){
+        console.log("Kollision erkannt...");
         return true;
       }
+      
     }
     return false;
     // Implementierung der Logik für die Kollisionserkennung - Ende
@@ -52,15 +57,16 @@ export class Snake {
   }
 
   // Funktion zum Essen
-  eat(numbersList: number[][]): void {
+  eat(eatables: Eatable[]): void {
     // Implementierung der Logik für das Essen
-    for (let i =  0; i <= numbersList.length - 1; i++) {
-      if (this.segmentPos[0] === numbersList[i]){
+    for (let i =  0; i <= eatables.length -1; i++) {
+      if (this.segmentPos[0] === eatables[i].getPosition()){
         //Setzen der Variable  ob gegessen of Bewegungsmethode
         this.wachsen = true;
+        console.log("Die Schlange isst...");
       }
     }
     // Implementierung der Logik für das Essen - Ende
-    console.log("Die Schlange isst...");
+    
   }
 }

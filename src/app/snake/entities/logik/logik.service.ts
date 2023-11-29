@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Board } from '../board/board';
 import { Snake } from '../snake/snake';
 import { Direction } from '../../types/direction';
+import { Apple } from '../eatables/apple';
 
 @Injectable({
   providedIn: 'root'
@@ -20,25 +21,36 @@ export class LogikService {
 
     this.gameBoard = new Board(boardSize);
 
+    let testApple = new Apple(5,5)
+    this.gameBoard.eatables.push(testApple);
+
     this.gameSnake = new Snake();
-    
 
     this.isGameStarted = true;
 
+    //Game loop
     const loop = () => {
       if (!this.isGameStarted) {
         return;
       }
-      if (this.gameSnake) {
-        
+      if (this.gameSnake && this.gameBoard) {
+
         this.gameSnake.move();
     
         if (this.gameSnake.detectCollision()) {
           this.endGame();
           return;
         }
+
+        if (this.isEatable(this.gameSnake.segmentPos[0])) {
+          this.gameSnake.wachsen = true;
+          this.gameBoard.eatables.pop();
+          let newApple = new Apple(0,0);
+          this.gameBoard.eatables.push(newApple);
+          newApple.spawn(this.gameBoard);
+        }
     
-        setTimeout(loop, 500); // Wait 0.5 seconds before next iteration
+        setTimeout(loop, 1000); // Wait 0.5 seconds before next iteration
       }
     };
   
@@ -54,9 +66,6 @@ export class LogikService {
 //Check if a position is occupied by the snake
   isSnake(position: number[]) : boolean {
 
-
-
-
     if (this.gameSnake?.segmentPos) {
       for (let segment of this.gameSnake.segmentPos) {
         if (segment.length === position.length 
@@ -67,7 +76,6 @@ export class LogikService {
       }
     }
     return false;
-    
   }
 
   isFood(position: number[]) : boolean {
@@ -76,8 +84,17 @@ export class LogikService {
     // }
     return false;
   }
-  isEatable() : void {
-
+  isEatable(position: number[]) : boolean {
+    if (this.gameBoard?.eatables) {
+      for (let segment of this.gameBoard.eatables) {
+        if (segment.getPosition().length === position.length 
+          && 
+          segment.getPosition().every((value, index) => value === position[index])) {
+            return true;
+        }
+      }
+    }
+    return false;
   }
 
   onArrowClick(direction: Direction): void {
