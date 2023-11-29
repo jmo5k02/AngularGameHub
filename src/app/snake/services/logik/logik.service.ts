@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Board } from '../board/board';
-import { Snake } from '../snake/snake';
+import { Board } from '../../entities/board/board';
+import { Snake } from '../../entities/snake/snake';
 import { Direction } from '../../types/direction';
-import { Apple } from '../eatables/apple';
+import { Apple } from '../../entities/eatables/apple';
 
 @Injectable({
   providedIn: 'root'

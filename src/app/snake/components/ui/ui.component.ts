@@ -1,7 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Direction} from "../../types/direction";
-import { LogikService } from '../../entities/logik/logik.service';
+import { LogikService } from '../../services/logik/logik.service';
 
 @Component({
   selector: 'app-ui',

@@ -60,10 +60,12 @@ export class Snake {
       }
 
 
-      let isHeadCollidingWithWall: boolean = (headPosX < 0 
+      let isHeadCollidingWithWall: boolean = (
+        headPosX < 0 
         || headPosX > board.boardSize-1 
         || headPosY < 0 
-        || headPosY > board.boardSize-1)
+        || headPosY > board.boardSize-1
+      )
 
       if (isHeadCollidingWithWall){
         console.log("Snake Wand Kollision erkannt...");
