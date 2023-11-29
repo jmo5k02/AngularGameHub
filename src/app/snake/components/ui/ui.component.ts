@@ -20,7 +20,7 @@ export class UiComponent {
   handleKeyboardEvent(event: KeyboardEvent) {
     this.keyPressed = true;
     if (this.keyPressed) {
-
+      event.preventDefault();
       switch(event.key) {
         case 'ArrowUp':
           this.direction = Direction.UP;
