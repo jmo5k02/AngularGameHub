@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HangmanService} from "../hangman.service";
+import {HangmanService} from "../../entities/hangman.service";
 
 @Component({
   selector: 'app-input',

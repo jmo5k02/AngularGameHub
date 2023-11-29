@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HangmanService } from '../hangman.service';
-import {InputComponent} from "../input/input.component";
+import { HangmanService } from './entities/hangman.service';
+import {InputComponent} from "./components/input/input.component";
 import { FormsModule } from '@angular/forms';
-import { GUIComponent } from '../gui/gui.component';
-import { HangmanType } from '../hangman-type';
+import { GUIComponent } from './components/gui/gui.component';
+import { HangmanType } from './entities/hangman-type';
 
 @Component({
   selector: 'app-hangman',

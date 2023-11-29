@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { HangmanService } from './hangman.service';
+import { HangmanService } from './hangman/entities/hangman.service';
 
 @Component({
   selector: 'app-root',

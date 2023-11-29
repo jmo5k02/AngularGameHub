@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { germanWords } from './Transfer_Notizen';
 import { HangmanType } from './hangman-type';
+import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
 @Injectable({
   providedIn: 'root'
 })
@@ -82,6 +83,7 @@ export class HangmanService {
   }
 
   startGame(): void {
+      alert('Spiel gestartet! Wortlänge: ' + this.wordLength);
       this.intiGameVarialbes(this.gameMode);
 
       this.isGameRunning = true;
