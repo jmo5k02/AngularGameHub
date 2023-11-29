@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Board } from '../../entities/board/board';
 import { FormsModule } from '@angular/forms';
 import { LogikService } from '../../entities/logik/logik.service';
+import { Direction } from '../../types/direction';
 
 @Component({
   selector: 'app-board',
@@ -12,6 +13,11 @@ import { LogikService } from '../../entities/logik/logik.service';
   styleUrl: './board.component.scss'
 })
 export class BoardComponent implements OnInit  {
+
+  directionR: Direction = Direction.RIGHT;
+  directionL: Direction = Direction.LEFT;
+  directionU: Direction = Direction.UP;
+  directionD: Direction = Direction.DOWN;
 
   boardSize: number = 10;
 
