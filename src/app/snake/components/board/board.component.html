@@ -20,21 +20,30 @@
                     <div class="w-10 h-10 border border-gray-500"
                         [ngClass]="{
                             ' bg-red-500': service.isSnake([rowIdx, itemIdx]),
-                            ' bg-green-500': service.isFood([rowIdx, itemIdx])
+                            ' bg-green-500': service.isEatable([rowIdx, itemIdx])
                         }" >
                     </div>
                 }
             </div>
         }
 
-        <span class="arrow-keys">
-            <button (click)="service.onArrowClick(directionU)">↑</button>
+        <!-- Arrow Keys that display the current direction -->
+        <div class="arrow-keys flex flex-row">
+            <button 
+                [ngClass]="{'bg-gray-500': service.gameSnake?.direction === directionU}"
+                (click)="service.onArrowClick(directionU)">↑</button>
             <div>
-              <button (click)="service.onArrowClick(directionL)">←</button>
-              <button (click)="service.onArrowClick(directionR)">→</button>
+              <button 
+                [ngClass]="{'bg-gray-500': service.gameSnake?.direction === directionL}"
+                (click)="service.onArrowClick(directionL)">←</button>
+              <button 
+                [ngClass]="{'bg-gray-500': service.gameSnake?.direction === directionR}"
+                (click)="service.onArrowClick(directionR)">→</button>
             </div>
-            <button (click)="service.onArrowClick(directionD)">↓</button>
-        </span>
+            <button 
+            [ngClass]="{'bg-gray-500': service.gameSnake?.direction === directionD}"
+                (click)="service.onArrowClick(directionD)">↓</button>
+        </div>
 
     </div>
 
