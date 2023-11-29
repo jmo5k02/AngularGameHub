@@ -11,9 +11,12 @@
 
     <!-- Render the game field -->
     <div id="GameBoardArea" class="m-8">
-        @for (row of service.gameBoard; track row; let rowIdx = $index) {
+        @for (row of service.gameBoard; track rowIdx; let rowIdx = $index) {
+
             <div class="flex justify-center">
-                @for (item of row; track item; let itemIdx = $index) {
+
+                @for (item of row; track itemIdx; let itemIdx = $index) {
+
                     <div class="w-10 h-10 border border-gray-500"
                         [ngClass]="{
                             ' bg-red-500': service.isSnake([rowIdx, itemIdx]),
@@ -24,14 +27,14 @@
             </div>
         }
 
-        <div class="arrow-keys">
+        <span class="arrow-keys">
             <button (click)="service.onArrowClick(directionU)">↑</button>
             <div>
               <button (click)="service.onArrowClick(directionL)">←</button>
               <button (click)="service.onArrowClick(directionR)">→</button>
             </div>
             <button (click)="service.onArrowClick(directionD)">↓</button>
-          </div>
+        </span>
 
     </div>
 

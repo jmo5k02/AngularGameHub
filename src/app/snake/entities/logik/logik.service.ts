@@ -21,7 +21,7 @@ export class LogikService {
     this.gameBoard = new Board(boardSize);
 
     this.gameSnake = new Snake();
-    this.gameSnake.segmentPos = [[0,0], [0,1]]
+    
 
     this.isGameStarted = true;
 
@@ -53,8 +53,10 @@ export class LogikService {
 
 //Check if a position is occupied by the snake
   isSnake(position: number[]) : boolean {
-    console.log("Position:", position)
-    console.log("Snake:", this.gameSnake?.segmentPos)
+
+
+
+
     if (this.gameSnake?.segmentPos) {
       for (let segment of this.gameSnake.segmentPos) {
         if (segment.length === position.length 
