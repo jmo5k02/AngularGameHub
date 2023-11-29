@@ -18,13 +18,13 @@ export class Snake {
       this.segmentPos[i] = this.segmentPos[i - 1];
     }
     if (this.direction===Direction.RIGHT){
-      this.segmentPos[0] = [this.segmentPos[0][0]+1,this.segmentPos[0][1]];
+      this.segmentPos[0] = [this.segmentPos[0][0],this.segmentPos[0][1]+1];
     } else if (this.direction===Direction.LEFT){
-      this.segmentPos[0] = [this.segmentPos[0][0]-1,this.segmentPos[0][1]];
-    } else if (this.direction===Direction.UP){
       this.segmentPos[0] = [this.segmentPos[0][0],this.segmentPos[0][1]-1];
+    } else if (this.direction===Direction.UP){
+      this.segmentPos[0] = [this.segmentPos[0][0]-1,this.segmentPos[0][1]];
     } else if (this.direction===Direction.DOWN){
-      this.segmentPos[0] = [this.segmentPos[0][0]-1,this.segmentPos[0][1]+1];
+      this.segmentPos[0] = [this.segmentPos[0][0]+1,this.segmentPos[0][1]];
     }
     // Implementierung der Logik für die Bewegung - Ende
     //Anhängen des gespeicherten Segments, wenn gegessen
