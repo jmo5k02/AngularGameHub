@@ -2,19 +2,29 @@ import { Input } from "@angular/core";
 import { Eatable } from "../eatables/eatable";
 
 export class Board {
-    
-    sizeX: number;
-    sizeY: number;
+    boardSize: number = 0;
+    board: number[][] = [];
+
     eatables: Eatable[];
 
-    constructor(sizeX: number, sizeY: number) {
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
+    constructor(size: number) {
+        this.boardSize = size;
+        this.board = this.init2DBoard(size);
         this.eatables = [];
     }
 
-    initBoard(): void {
-        
+    init2DBoard(size: number): number[][] {
+        return Array.from({ length: size }, 
+          () => Array.from(
+            { length: size }, 
+              () => 0));
+    }
+
+    *[Symbol.iterator]() {
+        for (let i = 0; i < this.boardSize; i++) {
+                yield this.board[i];
+            
+        }
     }
 
 
