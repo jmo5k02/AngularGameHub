@@ -4,10 +4,3 @@
 @tailwind utilities;
 
 
-input {
-    @apply block text-center mx-auto my-4 border-2 border-cyan-700 rounded shadow;
-}
-
-button {
-    @apply block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400
-}

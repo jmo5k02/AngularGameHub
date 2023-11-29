@@ -5,15 +5,15 @@
 
   <div class="alphabet-buttons">
 
-    <button 
-      [disabled]="findBuchstabe(char) 
-        || 
-        (service.isGameWon || service.isGameLost)" 
+    <button id="btn-alphabet"
+      [disabled]="findBuchstabe(char)
+        ||
+        (service.isGameWon || service.isGameLost)"
 
-      class=" disabled:bg-red-600 disabled:text-white hover:bg-cyan-400 bg-slate-400 border-2 border-cyan-700" 
-      
-      (click)="service.checkChar(char )" 
-      
+            class="grid-item"
+
+      (click)="service.checkChar(char )"
+
       *ngFor="let char of alphabet"
     >
     {{ char }}

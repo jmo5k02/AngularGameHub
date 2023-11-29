@@ -1,26 +1,16 @@
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 1px;
-  font-size: 20px;
-  text-align: center;
+  @apply  disabled:bg-red-600
+          disabled:text-white
+          hover:bg-cyan-400
+                bg-slate-400
+                border-2 border-cyan-700
+
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.grid-layout{
-  max-width:320px;
-  background: #eee;
-}
 .alphabet-buttons{
   display:grid;
   grid-template-columns: repeat(4,1fr);
   border:0;
-  .grid-item:hover{
-    background: lightskyblue;
-  }
 }
 .alphabet-chars{
   font-family: 'Space Mono', serif;
