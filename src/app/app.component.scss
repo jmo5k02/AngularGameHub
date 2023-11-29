@@ -1,0 +1,29 @@
+#menu {
+  margin-bottom: 40px;
+
+  a {
+    color: black;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
+
+#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  div {
+    background-color: red;
+    width: 20%;
+    height: 100vh;
+  }
+
+}
+
+.header {
+  background-color: red;
+}

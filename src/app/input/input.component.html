@@ -1,3 +1,23 @@
-<p>input works!</p>
+<div >
+  <div type="text" class="alphabet-chars" value="0">
+    <span *ngFor="let letter of service.wordProgess">{{letter}} </span>
+  </div>
 
+  <div class="alphabet-buttons">
 
+    <button 
+      [disabled]="findBuchstabe(char) 
+        || 
+        (service.isGameWon || service.isGameLost)" 
+
+      class=" disabled:bg-red-600 disabled:text-white hover:bg-cyan-400 bg-slate-400 border-2 border-cyan-700" 
+      
+      (click)="service.checkChar(char )" 
+      
+      *ngFor="let char of alphabet"
+    >
+    {{ char }}
+  </button>
+
+  </div>
+</div>

@@ -1,5 +1,42 @@
-<p>hangman works!</p>
+<a class="block text-center mx-auto">Wortlänge eingeben</a>
+<input [(ngModel)]="service.wordLength" type="number" placeholder="Wortlänge eingeben" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounde w-12 shadow"/>
+<select [(ngModel)]="service.gameMode" class="block text-center mx-auto border-2">
+    <option  value="classic">Splatter-Mode</option>
+    <option value="meme">Meme-Mode</option>
+</select>
+<br>
+<button (click)="service.startGame()" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400">Spiel starten</button>
 
-<h1>{{ service.wort }}</h1>
 
-<app-input></app-input>
+<!-- @if (service.isGameRunning ) { -->
+@if (true) {
+<!-- <h3>DAS AKTUELLE WORT</h3>
+<hr>
+<p>Wort: {{ service.wort }}</p>
+<hr> -->
+
+
+<div id="output">
+
+    <app-input id="input"></app-input>
+    <app-gui></app-gui>
+
+</div>
+
+@if (service.isGameWon) {
+    <h3>YOU WON!!!!!</h3>
+    <button (click)="service.startGame()" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400">Neues Spiel</button>
+}
+
+@if (service.isGameLost) {
+    <h3>YOU LOST.... :( </h3>
+    <p>Das Wort war: {{ service.wort }}</p>
+    <button (click)="service.startGame()" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400">Neues Spiel</button>
+}
+
+}
+
+@else if (!service.isGameRunning) {
+    <h3>Please start the game</h3>
+}
+
