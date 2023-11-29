@@ -1,4 +1,5 @@
 import {Direction} from "../../types/direction";
+import { Board } from "../board/board";
 import { Eatable } from "../eatables/eatable";
 
 export class Snake {
@@ -40,19 +41,40 @@ export class Snake {
   }
 
   // Funktion zum Erkennen von Kollisionen mit selbst
-  detectCollision(): boolean {
-    // Implementierung der Logik für die Kollisionserkennung
+  detectCollision(board: Board): boolean {
 
-
-
-
+    // Implementierung der Logik für die Kollisionserkennung der Schlang mit sich selbst
     for (let i =  1; i <= this.segmentPos.length - 1; i++) {
-      let isPositionSame: boolean = (this.segmentPos[0][0] == this.segmentPos[i][0] && this.segmentPos[0][1] == this.segmentPos[i][1])
 
-      if (isPositionSame){
-        console.log("Kollision erkannt...");
+      let headPosX: number = this.segmentPos[0][0]; //2
+      let headPosY: number = this.segmentPos[0][1]; //0
+
+      let bodyPosX: number = this.segmentPos[i][0];
+      let bodyPosY: number = this.segmentPos[i][1];
+                                                //2                     //0
+      let isHeadCollidingWithBody: boolean = (headPosX === bodyPosX && headPosY === bodyPosY)
+
+      if (isHeadCollidingWithBody){
+        console.log("Snake Interne Kollision erkannt...");
         return true;
       }
+
+
+      let isHeadCollidingWithWall: boolean = (headPosX < 0
+        || headPosX > board.boardSize-1
+        || headPosY < 0
+        || headPosY > board.boardSize-1)
+
+      if (isHeadCollidingWithWall){
+        console.log("Snake Wand Kollision erkannt...");
+        return true;
+      }
+
+
+
+
+
+
 
     }
     return false;

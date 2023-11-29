@@ -4,11 +4,12 @@ import { Board } from '../../entities/board/board';
 import { FormsModule } from '@angular/forms';
 import { LogikService } from '../../entities/logik/logik.service';
 import { Direction } from '../../types/direction';
+import { UiComponent } from '../ui/ui.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UiComponent],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
