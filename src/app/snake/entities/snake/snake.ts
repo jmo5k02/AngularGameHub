@@ -3,7 +3,7 @@ import {Direction} from "../../types/direction";
 export class Snake {
   segmenttempx: number = 0;
   segmenttempy: number = 0;
-  segmentPos: number[][] = []; // Liste für die Position der Segmente
+  segmentPos: number[][] = [[2,0],[1,0],[0,0]]; // Liste für die Position der Segmente
   direction: Direction = Direction.RIGHT; // Startrichtung
   wachsen: boolean = false;
 
@@ -18,17 +18,18 @@ export class Snake {
       this.segmentPos[i] = this.segmentPos[i - 1];
     }
     if (this.direction===Direction.RIGHT){
-      this.segmentPos[0] = [this.segmentPos[0][0]+1,this.segmentPos[0][1]];
+      this.segmentPos[0] = [this.segmentPos[0][0],this.segmentPos[0][1]+1];
     } else if (this.direction===Direction.LEFT){
-      this.segmentPos[0] = [this.segmentPos[0][0]-1,this.segmentPos[0][1]];
-    } else if (this.direction===Direction.UP){
       this.segmentPos[0] = [this.segmentPos[0][0],this.segmentPos[0][1]-1];
+    } else if (this.direction===Direction.UP){
+      this.segmentPos[0] = [this.segmentPos[0][0]-1,this.segmentPos[0][1]];
     } else if (this.direction===Direction.DOWN){
-      this.segmentPos[0] = [this.segmentPos[0][0]-1,this.segmentPos[0][1]+1];
+      this.segmentPos[0] = [this.segmentPos[0][0]+1,this.segmentPos[0][1]];
     }
     // Implementierung der Logik für die Bewegung - Ende
     //Anhängen des gespeicherten Segments, wenn gegessen
     if (this.wachsen) {
+      //Segment wird an letzte Stelle der Liste angefügt
       this.segmentPos.push([this.segmenttempx,this.segmenttempy])
     }
     //Anhängen des gespeicherten Segments, wenn gegessen - Ende

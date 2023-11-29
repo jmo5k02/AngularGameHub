@@ -1,0 +1,41 @@
+
+@if (!service.isGameStarted) {
+    
+    <p >Please Provide Board Size</p>
+    <input  [(ngModel)]="boardSize" placeholder="Provide Board Size" type="number">
+    
+    <button (click)="service.startGame(boardSize)">Start Game</button>
+}
+<!-- If game has started -->
+@if (service.isGameStarted) {
+
+    <!-- Render the game field -->
+    <div id="GameBoardArea" class="m-8">
+        @for (row of service.gameBoard; track row; let rowIdx = $index) {
+            <div class="flex justify-center">
+                @for (item of row; track item; let itemIdx = $index) {
+                    <div class="w-10 h-10 border border-gray-500" >
+                        {{rowIdx}}||{{itemIdx}}
+                    </div>
+                }
+
+                <!-- <div *ngIf="service.isSnake(row, item)" class="bg-red-500"></div>
+                <div *ngIf="service.isFood(row, item)" class="bg-green-500"></div> -->
+        
+
+                <!-- [ngClass]="{
+                    'bg-red-500': service.isSnake(row, item),
+                    'bg-green-500': service.isFood(row, item)
+                }" -->
+                <!-- @for (let j = 0; j < service.boardSize; j++) {
+                    <div class="w-10 h-10 border border-gray-500" [ngClass]="{
+                        'bg-red-500': service.isSnake(i, j),
+                        'bg-green-500': service.isFood(i, j)
+                    }"></div>
+                }  -->
+            </div>
+        }
+    </div>
+
+    <button (click)="service.endGame()">End Game</button>
+}
