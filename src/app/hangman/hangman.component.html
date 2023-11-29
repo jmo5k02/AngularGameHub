@@ -1,11 +1,11 @@
-
-<input [(ngModel)]="service.wordLength" type="number" placeholder="Wortlänge eingeben"/>
-<select [(ngModel)]="service.gameMode">
+<a class="block text-center mx-auto">Wortlänge eingeben</a>
+<input [(ngModel)]="service.wordLength" type="number" placeholder="Wortlänge eingeben" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounde w-12 shadow"/>
+<select [(ngModel)]="service.gameMode" class="block text-center mx-auto border-2">
     <option  value="classic">Splatter-Mode</option>
     <option value="meme">Meme-Mode</option>
 </select>
 <br>
-<button (click)="service.startGame()">Spiel starten</button>
+<button (click)="service.startGame()" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400">Spiel starten</button>
 
 
 <!-- @if (service.isGameRunning ) { -->
@@ -25,13 +25,13 @@
 
 @if (service.isGameWon) {
     <h3>YOU WON!!!!!</h3>
-    <button (click)="service.startGame()">Neues Spiel</button>
+    <button (click)="service.startGame()" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400">Neues Spiel</button>
 }
 
 @if (service.isGameLost) {
     <h3>YOU LOST.... :( </h3>
     <p>Das Wort war: {{ service.wort }}</p>
-    <button (click)="service.startGame()">Neues Spiel</button>
+    <button (click)="service.startGame()" class="block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400">Neues Spiel</button>
 }
 
 }

@@ -1,4 +1,4 @@
-<div class="grid-layout">
+<div >
   <div type="text" class="alphabet-chars" value="0">
     <span *ngFor="let letter of service.wordProgess">{{letter}} </span>
   </div>
@@ -10,7 +10,7 @@
         || 
         (service.isGameWon || service.isGameLost)" 
 
-      class="grid-item" 
+      class=" disabled:bg-red-600 disabled:text-white hover:bg-cyan-400 bg-slate-400 border-2 border-cyan-700" 
       
       (click)="service.checkChar(char )" 
       

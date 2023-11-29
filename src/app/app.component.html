@@ -1,29 +1,30 @@
 
-<div class="header">
-  <h1>Startseite</h1>
+<div class="text-center bg-slate-800 text-gray-400">
+  <h1 class="text-8xl">Game Hub</h1>
 
-  <div id="menu">
-    <a [routerLink]="['/']">Home</a>
-
-    <a [routerLink]="['/Sudoku']">Sudoku</a>
-
-    <a [routerLink]="['/Hangman']">Hangman</a>
-  </div>
 </div>
 
 
-<router-outlet></router-outlet>
 
-<!-- <div id="content">
+
+<div class="flex flex-row">
 
   
-  <div>
-    left Box
+  <div class="bg-slate-600 h-screen text-4xl space-y-4 flex flex-col ">
+    
+      <a class="hover:text-slate-100" [routerLink]="['/']">Home</a>
+  
+      <a class="hover:text-slate-100" [routerLink]="['/Sudoku']">Sudoku</a>
+  
+      <a class="hover:text-slate-100" [routerLink]="['/Hangman']">Hangman</a>
+    
   </div>
 
-  <div>
-    right Box
+  <div class="shadow-md w-screen m-4 bg-slate-200 rounded">
+
+    <router-outlet ></router-outlet>
+
   </div>
 
 
-</div> -->
+</div>
