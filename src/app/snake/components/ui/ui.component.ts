@@ -1,6 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Direction} from "../../types/direction";
+import { LogikService } from '../../entities/logik/logik.service';
 
 @Component({
   selector: 'app-ui',
@@ -10,6 +11,8 @@ import {Direction} from "../../types/direction";
   styleUrl: './ui.component.scss'
 })
 export class UiComponent {
+
+  constructor(public service: LogikService) { }
 
   direction: Direction = Direction.RIGHT;
   keyPressed?:boolean = false; // Variable, um den Tastenzustand zu verfolgen
@@ -21,19 +24,29 @@ export class UiComponent {
       switch(event.key) {
         case 'ArrowUp':
           this.direction = Direction.UP;
-          console.log(this.direction)
+          if (this.service.gameSnake) {
+            this.service.gameSnake.direction = Direction.UP;
+
+          }
           break;
         case 'ArrowDown':
-          this.direction = Direction.DOWN;
-          console.log(this.direction)
+          if (this.service.gameSnake) {
+            this.service.gameSnake.direction = Direction.DOWN;
+
+          }
           break;
         case 'ArrowLeft':
-          this.direction = Direction.LEFT;
-          console.log(this.direction)
+          if (this.service.gameSnake) {
+            this.service.gameSnake.direction = Direction.LEFT;
+
+          }
           break;
         case 'ArrowRight':
-          this.direction = Direction.RIGHT;
-          console.log(this.direction)
+          if (this.service.gameSnake) {
+            this.service.gameSnake.direction = Direction.RIGHT;
+
+          }
+
           break;
         case 'Escape':
           console.log("Escape")
