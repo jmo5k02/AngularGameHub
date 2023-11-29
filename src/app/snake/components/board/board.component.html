@@ -10,7 +10,7 @@
 @if (service.isGameStarted) {
 
     <!-- Render the game field -->
-    <div id="GameBoardArea" class="m-8">
+    <div id="GameBoardArea" class="m-8 border-2 border-cyan-800">
         @for (row of service.gameBoard; track rowIdx; let rowIdx = $index) {
 
             <div class="flex justify-center">
