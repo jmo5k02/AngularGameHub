@@ -37,7 +37,7 @@ export class LogikService {
 
         this.gameSnake.move();
     
-        if (this.gameSnake.detectCollision()) {
+        if (this.gameSnake.detectCollision(this.gameBoard)) {
           this.endGame();
           return;
         }
@@ -50,7 +50,7 @@ export class LogikService {
           newApple.spawn(this.gameBoard);
         }
     
-        setTimeout(loop, 1000); // Wait 0.5 seconds before next iteration
+        setTimeout(loop, 100); // Wait 0.5 seconds before next iteration
       }
     };
   
