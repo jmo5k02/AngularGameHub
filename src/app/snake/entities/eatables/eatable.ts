@@ -5,4 +5,6 @@ export interface Eatable {
     posY: number;
 
     spawn(board: Board): number[];
+
+    getPosition(): number[];
 }
