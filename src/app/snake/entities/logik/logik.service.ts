@@ -36,7 +36,7 @@ export class LogikService {
       if (this.gameSnake && this.gameBoard) {
 
         this.gameSnake.move();
-    
+
         if (this.gameSnake.detectCollision()) {
           this.endGame();
           return;
@@ -49,11 +49,11 @@ export class LogikService {
           this.gameBoard.eatables.push(newApple);
           newApple.spawn(this.gameBoard);
         }
-    
+
         setTimeout(loop, 1000); // Wait 0.5 seconds before next iteration
       }
     };
-  
+
     loop();
 
     console.log(this.gameBoard.board);
@@ -68,8 +68,8 @@ export class LogikService {
 
     if (this.gameSnake?.segmentPos) {
       for (let segment of this.gameSnake.segmentPos) {
-        if (segment.length === position.length 
-          && 
+        if (segment.length === position.length
+          &&
           segment.every((value, index) => value === position[index])) {
             return true;
         }
@@ -87,8 +87,8 @@ export class LogikService {
   isEatable(position: number[]) : boolean {
     if (this.gameBoard?.eatables) {
       for (let segment of this.gameBoard.eatables) {
-        if (segment.getPosition().length === position.length 
-          && 
+        if (segment.getPosition().length === position.length
+          &&
           segment.getPosition().every((value, index) => value === position[index])) {
             return true;
         }
@@ -101,7 +101,7 @@ export class LogikService {
     if (this.gameSnake) {
       this.gameSnake.direction = direction;
     }
-    
+
   }
 
 }
