@@ -1,11 +1,13 @@
 <div class="container mx-auto mt-5">
   <h2 class="text-xl font-semibold mb-3">Tic-Tac-Toe</h2>
-  <div *ngIf="winner">
-    <p>Spieler {{ winner }} hat gewonnen!</p>
+  <hr>
+  <div *ngIf="winner !== null">
+    <p *ngIf="winner === 'draw'">Remis!</p>
+    <p *ngIf="winner !== 'draw'">Spieler <img *ngIf="winner === 'X'" [src]="image1Path" alt="X" class="player-image"> <img *ngIf="winner === 'O'" [src]="image2Path" alt="O" class="player-image"> hat gewonnen!</p>
     <button (click)="resetGame()">Neues Spiel starten</button>
   </div>
-  <div *ngIf="!winner">
-    <p>Aktueller Spieler: {{ currentPlayer }}</p>
+  <div *ngIf="winner === null">
+    <p>Aktueller Spieler: <img *ngIf="currentPlayer === 'X'" [src]="image1Path" alt="X" class="player-image"> <img *ngIf="currentPlayer === 'O'" [src]="image2Path" alt="O" class="player-image"></p>
     <app-board [board]="board" [currentPlayer]="currentPlayer" (moveMade)="makeMove($event.row, $event.col)"></app-board>
   </div>
 </div>

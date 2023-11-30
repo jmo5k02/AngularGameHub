@@ -1,7 +1,10 @@
+
 <table>
   <tr *ngFor="let row of board; let i = index">
     <td *ngFor="let cell of row; let j = index" (click)="cellClick(i, j)">
-      {{ cell }}
+      <!-- Nutze ngIf, um die Bilder basierend auf dem Spieler anzuzeigen -->
+      <img *ngIf="cell === 'X'" [src]="image1Path" alt="X" class="mark-image">
+      <img *ngIf="cell === 'O'" [src]="image2Path" alt="O" class="mark-image">
     </td>
   </tr>
 </table>

@@ -9,6 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './board.component.scss'
 })
 export class BoardComponent {
+  image1Path: string = 'assets/TikTakToeImages/memeface1.png';
+  image2Path = 'assets/TikTakToeImages/memeface2.png';
+
   @Input() board: string[][] | undefined;
   @Input() currentPlayer: 'X' | 'O' | undefined;
   @Output() moveMade = new EventEmitter<{ row: number, col: number }>();

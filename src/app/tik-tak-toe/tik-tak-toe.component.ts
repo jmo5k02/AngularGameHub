@@ -10,25 +10,38 @@ import {BoardComponent} from "./board/board.component";
   styleUrl: './tik-tak-toe.component.scss'
 })
 export class TikTakToeComponent {
-  currentPlayer: 'X' | 'O' = 'X'; // Aktueller Spieler
-  board: string[][] = [['', '', ''], ['', '', ''], ['', '', '']]; // Spielfeld
-  winner: 'X' | 'O' | null = null;
+  image1Path: string = 'assets/TikTakToeImages/memeface1.png';
+  image2Path = 'assets/TikTakToeImages/memeface2.png';
 
-  // Logik für Zug des Spielers
+  currentPlayer: 'X' | 'O' = 'X';
+  winner: 'X' | 'O' | 'draw' | null = null;
+  board: string[][] = [['', '', ''], ['', '', ''], ['', '', '']];
+  movesMade: number = 0;
+
+  // Methode für einen Spielzug
   makeMove(row: number, col: number): void {
+    // Überprüfe, ob die Zelle leer ist und das Spiel noch nicht vorbei ist
     if (!this.board[row][col] && !this.winner) {
+      // Markiere die Zelle mit dem aktuellen Spieler
       this.board[row][col] = this.currentPlayer;
+      this.movesMade++; // Zähle den Zug
+
+      // Überprüfe, ob der aktuelle Spieler gewonnen hat
       if (this.checkWinner(row, col)) {
         this.winner = this.currentPlayer;
+      } else if (this.movesMade === 9) {
+        // Überprüfe auf ein Unentschieden, wenn alle Zellen belegt sind
+        this.winner = 'draw';
       } else {
+        // Wechsle zum anderen Spieler, wenn das Spiel nicht vorbei ist
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
       }
     }
   }
 
-  // Überprüfung auf Gewinner
+  // Überprüfung auf einen Gewinner
   checkWinner(row: number, col: number): boolean {
-// Überprüfe die Reihe
+    // Überprüfe die Reihe
     if (
       this.board[row][0] === this.currentPlayer &&
       this.board[row][1] === this.currentPlayer &&
@@ -56,9 +69,9 @@ export class TikTakToeComponent {
       return true;
     }
 
-    return false;
+    return false; // Kein Gewinner gefunden
   }
-
+  // Überprüfung auf Diagonalen
   checkDiagonals(): boolean {
     return (
       (this.board[0][0] === this.currentPlayer &&
@@ -70,9 +83,11 @@ export class TikTakToeComponent {
     );
   }
 
+  // Zurücksetzen des Spiels
   resetGame(): void {
     this.currentPlayer = 'X';
     this.winner = null;
     this.board = [['', '', ''], ['', '', ''], ['', '', '']];
+    this.movesMade = 0;
   }
 }

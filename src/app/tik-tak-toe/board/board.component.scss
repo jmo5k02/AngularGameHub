@@ -1,13 +1,28 @@
 table {
   border-collapse: collapse;
   margin-top: 20px;
+  font-size: 1.5em; /* Vergrößere die Schriftgröße des Spielfelds */
 }
 
 td {
-  width: 50px;
-  height: 50px;
+  width: 150px; /* Vergrößere die Breite der Zellen */
+  height: 150px; /* Vergrößere die Höhe der Zellen */
   border: 1px solid #ccc;
   text-align: center;
-  font-size: 1.5em;
   cursor: pointer;
+}
+
+td:hover {
+  background-color: #f0f0f0; /* Füge einen Hover-Effekt hinzu */
+}
+
+.mark {
+  font-weight: bold; /* Mache die Markierungen fett */
+  font-size: 3.5em; /* Vergrößere die Schriftgröße der Markierungen */
+}
+
+.mark-image {
+  width: 100%; /* Setze die Breite auf 100%, um die Zellenbreite zu füllen */
+  height: 100%; /* Setze die Höhe auf 100%, um die Zellenhöhe zu füllen */
+  object-fit: contain; /* Erhalte das Seitenverhältnis des Bildes und fülle den verfügbaren Raum aus */
 }
