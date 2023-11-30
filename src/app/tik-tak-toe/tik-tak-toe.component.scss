@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column; /* Staple die Kinder vertikal */
+  align-items: center; /* Zentriere die Kinder horizontal */
+  text-align: center; /* Zentriere den Text innerhalb des Containers */
+  height: 100vh; /* Nutze die volle Höhe des Viewports */
+  margin-top: 5vh; /* Füge einen oberen Abstand hinzu */
+}
+
+button {
+  @apply block text-center mx-auto my-4 border-2 border-cyan-700 rounded hover:bg-cyan-400
+}
+
+.player-image {
+  width: 100px; /* Passe die Breite an deine Anforderungen an */
+  height: 100px; /* Passe die Höhe an deine Anforderungen an */
+  object-fit: contain; /* Erhalte das Seitenverhältnis des Bildes und fülle den verfügbaren Raum aus */
+}

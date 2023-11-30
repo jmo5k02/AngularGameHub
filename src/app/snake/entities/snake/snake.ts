@@ -51,9 +51,9 @@ export class Snake {
 
       let bodyPosX: number = this.segmentPos[i][0];
       let bodyPosY: number = this.segmentPos[i][1];
-                                                //2                     //0             
+                                                //2                     //0
       let isHeadCollidingWithBody: boolean = (headPosX === bodyPosX && headPosY === bodyPosY)
-      
+
       if (isHeadCollidingWithBody){
         console.log("Snake Interne Kollision erkannt...");
         return true;
@@ -61,9 +61,9 @@ export class Snake {
 
 
       let isHeadCollidingWithWall: boolean = (
-        headPosX < 0 
-        || headPosX > board.boardSize-1 
-        || headPosY < 0 
+        headPosX < 0
+        || headPosX > board.boardSize-1
+        || headPosY < 0
         || headPosY > board.boardSize-1
       )
 
@@ -72,7 +72,7 @@ export class Snake {
         return true;
       }
 
-      
+
     }
     return false;
     // Implementierung der Logik für die Kollisionserkennung - Ende
@@ -90,6 +90,6 @@ export class Snake {
       }
     }
     // Implementierung der Logik für das Essen - Ende
-    
+
   }
 }

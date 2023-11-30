@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Board } from '../../entities/board/board';
 import { FormsModule } from '@angular/forms';
 import { LogikService } from '../../services/logik/logik.service';
 import { Direction } from '../../types/direction';
 import { UiComponent } from '../ui/ui.component';
+import { Board } from "../../entities/board/board";
 
 @Component({
   selector: 'app-board',
@@ -27,12 +27,12 @@ export class BoardComponent implements OnInit  {
   constructor(public service: LogikService) { }
 
   ngOnInit(): void {
-    
+
   }
 
 
 
-  
 
-    
+
+
 }
