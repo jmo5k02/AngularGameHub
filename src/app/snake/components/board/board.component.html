@@ -17,11 +17,43 @@
 
                 @for (item of row; track itemIdx; let itemIdx = $index) {
 
-                    <div class="w-10 h-10 border border-gray-500"
-                        [ngClass]="{
-                            ' bg-red-500': service.isSnake([rowIdx, itemIdx]),
-                            ' bg-green-500': service.isEatable([rowIdx, itemIdx])
-                        }" >
+                    <div class="w-10 h-10 border border-gray-500">
+
+                        @if (service.isSnake([rowIdx, itemIdx])) {
+
+                            @if (service.isSnakeHead([rowIdx, itemIdx])) {
+                                <img 
+                                    src="assets/GameAssets/snakeHead.jpg" 
+                                    alt="Snake Head"
+                                    
+                                >
+                            } @else {
+                                <img 
+                                    src="assets/GameAssets/snakeBody.jpg" 
+                                    alt="Snake Head"
+                                    
+                                >
+                            }
+                        }
+
+                        @if (service.isEatable([rowIdx, itemIdx])) {
+                            @if (service.isApple([rowIdx, itemIdx]) ) {
+                                <img 
+                                src="assets/GameAssets/apple.png" 
+                                alt="Apple"
+                                
+                            >
+
+                            }
+                            @else if (service.isSpeedItem([rowIdx, itemIdx]) ) {
+                                <img 
+                                src="assets/GameAssets/lightning.avif" 
+                                alt="SpeedItem"
+                            >
+                            }
+                        }
+
+                      
                     </div>
                 }
             </div>

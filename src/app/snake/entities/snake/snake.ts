@@ -72,11 +72,6 @@ export class Snake {
         return true;
       }
 
-
-
-
-
-
       
     }
     return false;

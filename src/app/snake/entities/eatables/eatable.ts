@@ -1,3 +1,4 @@
+import { Eatables } from "../../types/eatables";
 import { Board } from "../board/board";
 
 export interface Eatable {
@@ -9,4 +10,6 @@ export interface Eatable {
     spawn(board: Board): number[];
 
     getPosition(): number[];
+
+    getType(): Eatables;
 }
