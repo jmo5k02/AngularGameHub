@@ -12,14 +12,14 @@ import {BoardComponent} from "./board/board.component";
 export class TikTakToeComponent {
   currentPlayer: 'X' | 'O' = 'X'; // Aktueller Spieler
   board: string[][] = [['', '', ''], ['', '', ''], ['', '', '']]; // Spielfeld
+  winner: 'X' | 'O' | null = null;
 
   // Logik für Zug des Spielers
   makeMove(row: number, col: number): void {
-    if (!this.board[row][col]) {
+    if (!this.board[row][col] && !this.winner) {
       this.board[row][col] = this.currentPlayer;
       if (this.checkWinner(row, col)) {
-        alert(`Spieler ${this.currentPlayer} hat gewonnen!`);
-        this.resetGame();
+        this.winner = this.currentPlayer;
       } else {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
       }
@@ -72,6 +72,7 @@ export class TikTakToeComponent {
 
   resetGame(): void {
     this.currentPlayer = 'X';
+    this.winner = null;
     this.board = [['', '', ''], ['', '', ''], ['', '', '']];
   }
 }

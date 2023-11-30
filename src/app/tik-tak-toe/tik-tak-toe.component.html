@@ -1,9 +1,11 @@
-<p>tik-tak-toe works!</p>
-
 <div class="container mx-auto mt-5">
   <h2 class="text-xl font-semibold mb-3">Tic-Tac-Toe</h2>
-  <div>
-    <p>Aktueller Spieler: {{ currentPlayer }}</p>
+  <div *ngIf="winner">
+    <p>Spieler {{ winner }} hat gewonnen!</p>
+    <button (click)="resetGame()">Neues Spiel starten</button>
   </div>
-  <app-board [board]="board" [currentPlayer]="currentPlayer" (moveMade)="makeMove($event.row, $event.col)"></app-board>
+  <div *ngIf="!winner">
+    <p>Aktueller Spieler: {{ currentPlayer }}</p>
+    <app-board [board]="board" [currentPlayer]="currentPlayer" (moveMade)="makeMove($event.row, $event.col)"></app-board>
+  </div>
 </div>

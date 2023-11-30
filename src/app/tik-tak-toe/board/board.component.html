@@ -1,5 +1,3 @@
-<p>board works!</p>
-
 <table>
   <tr *ngFor="let row of board; let i = index">
     <td *ngFor="let cell of row; let j = index" (click)="cellClick(i, j)">
