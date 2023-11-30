@@ -1,4 +1,4 @@
-import { Board } from "../board/board";
+import { Board } from "../board/board"
 
 export interface Eatable {
     posX: number;

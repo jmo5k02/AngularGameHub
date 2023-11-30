@@ -1,5 +1,5 @@
 import {Direction} from "../../types/direction";
-import { Board } from "../board/board";
+import { Board } from "../board/board"
 import { Eatable } from "../eatables/eatable";
 
 export class Snake {

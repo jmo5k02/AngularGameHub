@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Board } from '../board/board';
+import { Board } from "../board/board"
 import { Snake } from '../snake/snake';
 import { Direction } from '../../types/direction';
 import { Apple } from '../eatables/apple';
